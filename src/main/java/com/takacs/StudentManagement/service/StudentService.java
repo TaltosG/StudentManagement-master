@@ -8,12 +8,8 @@ public interface StudentService {
 
    Student saveStudent(Student student);
 
-   static Student getStudentById(Long is) {
-      return null;
-   }
+  Student getStudentById(Long id);
 
-   static Student updateStudent(Student student) {
-      return null;
-   }
+  Student updateStudent(Student student);
 
 }

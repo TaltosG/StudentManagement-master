@@ -38,7 +38,7 @@ public class StudentController {
 
     @GetMapping("/students/edit/{id}")
     public String editStudentForm(@PathVariable Long id, Model model){
-        model.addAttribute("student", StudentService.getStudentById(id));
+        model.addAttribute("student", studentService.getStudentById(id));
         return "edit_student";
     }
 
@@ -48,14 +48,14 @@ public class StudentController {
                 Model model) {
 
         // get student from database by id
-        Student existingStudent = StudentService.getStudentById(id);
+        Student existingStudent = studentService.getStudentById(id);
         existingStudent.setId(id);
         existingStudent.setFirstName(student.getFirstName());
         existingStudent.setLastName(student.getLastName());
         existingStudent.setEmail(student.getEmail());
 
         //save update student object
-        StudentService.updateStudent(existingStudent);
+        studentService.updateStudent(existingStudent);
         return "redirect:/students";
 
     }
